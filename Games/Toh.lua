@@ -1,4 +1,4 @@
-local function ACbypasser()
+local function ACbypasser() 
   -- credits to whoever made this idk
         local reg = getreg()
  
