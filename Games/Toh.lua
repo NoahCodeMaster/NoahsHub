@@ -67,10 +67,10 @@ mainS:AddButton({
 	Callback = function()
 
         function f()
-            game.Players.LocalPlayer.Character.KillScript:Destroy()
+            char.KillScript:Destroy()
         end
         hookfunction(f, function()
-            game.Players.LocalPlayer.Character.KillScript:Destroy()
+            char.KillScript:Destroy()
         end)
  
         f()
@@ -81,7 +81,7 @@ mainS:AddButton({
 	Name = "Win Round",
 	Callback = function()
 	    local endtower = game.workspace.tower.sections.finish.exit.ParticleBrick.CFrame
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = endtower
+            char.HumanoidRootPart.CFrame = endtower
     end
 })
 
