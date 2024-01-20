@@ -16,7 +16,6 @@ if gameid then
     if game.PlaceId == gameid[1] or game.PlaceId == 5253186791 then
            loadstring(game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/NoahsHub/main/Games/Toh.lua"))()
         else
-            notif("Game Not Supported", "This Hub Isnt Supported for this game.", 5)
     end
     ----- Break In 2
     if game.PlaceId == gameid[2] or game.PlaceId == 13864667823 then
