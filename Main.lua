@@ -24,7 +24,3 @@ if gameid then
     end
     -- Soon
 end
-
-if not gameid[game.PlaceId] then
-    notif("Game Not Supported", "This Hub Isnt Supported for this game.", 5)
-end
