@@ -1,5 +1,4 @@
-local function ACbypasser() 
-  -- credits to whoever made this idk
+local function ACbypasser()
         local reg = getreg()
  
     for i, Function in next, reg do
@@ -52,7 +51,7 @@ local set = Window:MakeTab({Name = "Settings"})
 
 local ac = main:AddSection({Name = "Anti Cheat Bypass"})
 local mainS = main:AddSection({Name = "Main"})
-local inf = main:AddSection({Name = "Infinite Yield"})
+local inf = main:AddSection({Name = "Other"})
 
 
 ac:AddButton({
@@ -67,10 +66,10 @@ mainS:AddButton({
 	Callback = function()
 
         function f()
-            char.KillScript:Destroy()
+            game.Players.LocalPlayer.Character.KillScript:Destroy()
         end
         hookfunction(f, function()
-            char.KillScript:Destroy()
+            game.Players.LocalPlayer.Character.KillScript:Destroy()
         end)
  
         f()
@@ -81,7 +80,7 @@ mainS:AddButton({
 	Name = "Win Round",
 	Callback = function()
 	    local endtower = game.workspace.tower.sections.finish.exit.ParticleBrick.CFrame
-            char.HumanoidRootPart.CFrame = endtower
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = endtower
     end
 })
 
@@ -110,6 +109,13 @@ mainS:AddButton({
     Callback = function()
         char:FindFirstChild("bunnyJump"):Destroy()
         plr.PlayerScripts.jump:Destroy()
+    end
+})
+
+inf:AddButton({
+    Name = "Fly Gui (use bypass first)"
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
     end
 })
 
