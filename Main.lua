@@ -1,4 +1,4 @@
-local gameid = {
+local gameid = { 
     [1] = 1962086868, -- Tower Of Hell
     [2] = 13864661000, -- Break in 2 (lobby)
 }
