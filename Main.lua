@@ -22,7 +22,6 @@ if gameid then
     if game.PlaceId == gameid[2] or game.PlaceId == 13864667823 then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/NoahsHub/main/Games/Breakin2.lua"))()
         else
-            notif("Game Not Supported", "This Hub Isnt Supported for this game.", 5)
     end
     -- Soon
 end
