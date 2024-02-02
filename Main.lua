@@ -1,6 +1,7 @@
 local gameid = { 
     [1] = 1962086868, -- Tower Of Hell
     [2] = 13864661000, -- Break in 2 (lobby)
+    [3] = 3956818381 -- Ninja Legends
 }
 
 function notif(title, txt, dur)
@@ -21,6 +22,9 @@ if gameid then
     if game.PlaceId == gameid[2] or game.PlaceId == 13864667823 then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/NoahsHub/main/Games/Breakin2.lua"))()
         else
+    end
+    if game.PlaceId == gameid[3] then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/NoahsHub/main/Games/Ninjalegends.lua"))()
     end
     -- Soon
 end
