@@ -210,7 +210,7 @@ auto:AddToggle({
         while true do
             if not getgenv().autosell then return end
             if getgenv().autosell == true then
-                stuff("Sell", "Auto Sell"..v)
+                stuff("Sell")
             end
         end
     end
