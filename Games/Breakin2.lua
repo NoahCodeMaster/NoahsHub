@@ -1,5 +1,6 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
 local Window = OrionLib:MakeWindow({Name = "Venture Hub", HidePremium = false, SaveConfig = true, IntroEnabled = true, IntroText="Venture Hub"})
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/VentureHub/main/Stuff/src.lua"))()
 -- Var
 local plr = game:GetService("Players").LocalPlayer
 local char = plr.Character
