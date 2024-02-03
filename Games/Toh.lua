@@ -64,18 +64,19 @@ ac:AddButton({
 mainS:AddButton({
 	Name = "God Mode (Cant die to KillBrick)",
 	Callback = function()
-	    function f()
+
+        function f()
 	while true do						
             game.Players.LocalPlayer.Character.KillScript:Destroy()
 	    task.wait(1.5)
+	    end
         end
         hookfunction(f, function()
             game.Players.LocalPlayer.Character.KillScript:Destroy()
         end)
  
         f()
-  	end
-    end
+  	end    
 })
 
 mainS:AddButton({
