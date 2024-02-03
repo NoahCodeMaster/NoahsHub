@@ -133,6 +133,6 @@ set:AddButton({
     end
 })
 
-sup:AddParagraph("Supported Games",game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/NoahsHub/main/SupportedGames/games.sup"))
+sup:AddParagraph("Supported Games",game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/VentureHub/main/SupportedGames/games.sup"))
 
 OrionLib:Init()
