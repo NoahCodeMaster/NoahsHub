@@ -34,7 +34,7 @@ local function ACbypasser()
 end
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
-local Window = OrionLib:MakeWindow({Name = "Noah's Hub", HidePremium = false, SaveConfig = true, IntroEnabled = true, IntroText="Noah's Scripts"})
+local Window = OrionLib:MakeWindow({Name = game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/VentureHub/main/HubName.lua"), HidePremium = false, SaveConfig = true, IntroEnabled = true, IntroText=game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/VentureHub/main/HubName.lua")})
 
 local plr = game:GetService("Players").LocalPlayer
 local char = plr.Character
