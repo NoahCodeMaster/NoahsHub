@@ -66,7 +66,9 @@ mainS:AddButton({
 	Callback = function()
 
         function f()
+	while true do						
             game.Players.LocalPlayer.Character.KillScript:Destroy()
+	    task.wait(1.5)
         end
         hookfunction(f, function()
             game.Players.LocalPlayer.Character.KillScript:Destroy()
