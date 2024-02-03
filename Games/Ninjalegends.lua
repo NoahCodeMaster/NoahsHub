@@ -17,7 +17,7 @@ local homeS = home:AddSection({Name = "Home"})
 homeS:AddLabel("Hey there, "..plr.Name.."! Thank you for Using Noah's script")
 
 local homeU = home:AddSection({Name = "Updates"})
-homeU:AddLabel(game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/NoahsHub/main/UpdateNew/ninjalegends.update"))
+homeU:AddLabel(game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/VentureHub/main/UpdateNew/ninjalegends.update"))
 -- Tabs
 local main = Window:MakeTab({Name = "Main", Icon = "https://www.roblox.com/library/", PremiumOnly = false})
 local farm = Window:MakeTab({Name = "Auto Farm"})
@@ -428,7 +428,7 @@ set:AddButton({
     end
 })
 
-sup:AddParagraph("Supported Games",game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/NoahsHub/main/SupportedGames/games.sup"))
+sup:AddParagraph("Supported Games",game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/VentureHub/main/SupportedGames/games.sup"))
 
 OrionLib:Init()
 
