@@ -43,7 +43,7 @@ local home = Window:MakeTab({Name = "Home", Icon = "https://www.roblox.com/libra
 local homeS = home:AddSection({Name = "Home"})
 homeS:AddLabel("Hey there, "..game.Players.LocalPlayer.Name.."!")
 local homeU = home:AddSection({Name = "Updates"})
-homeU:AddLabel(game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/NoahsHub/main/UpdateNew/TowerOfHell.update"))
+homeU:AddLabel(game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/VentureHub/main/UpdateNew/TowerOfHell.update"))
 
 local main = Window:MakeTab({Name = "Main", Icon = "https://www.roblox.com/library/", PremiumOnly = false})
 local sup = Window:MakeTab({Name = "Games"})
