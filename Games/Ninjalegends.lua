@@ -440,8 +440,8 @@ set:AddButton({
     Name = "Destroy Gui",
     Callback = function()
         OrionLib:Destroy()
-end
-
+    end
+})
 sup:AddParagraph("Supported Games",game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/VentureHub/main/SupportedGames/games.sup"))
 
 OrionLib:Init()
