@@ -430,7 +430,7 @@ set:AddButton({
 })
 
 set:AddButton({
-    Name = "File Loader Setup (Soon)",
+    Name = "File Loader Setup",
     Callback = function()
       loadstring(game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/VentureHub/main/Settings/Source.lua"))()
     end
