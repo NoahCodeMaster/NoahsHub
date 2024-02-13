@@ -1,6 +1,7 @@
 local gameid = { 
     [1962086868] = true, -- Tower Of Hell
     [13864661000] = true, -- Break in 2 (lobby)
+    [13864667823] = true, -- break in 2 game
     [3956818381] = true -- Ninja Legends
 }
 
