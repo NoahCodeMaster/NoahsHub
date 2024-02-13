@@ -14,7 +14,7 @@ end
 
 -- Check if the current game ID is supported
 if not gameid[game.PlaceId] then
-    notif("Unsupported Game", "This game is not supported.", 5)
+    notif("Unsupported Game", "This script does not support this game.", 5)
 else
     -- Tower Of Hell
     if game.PlaceId == 1962086868 or game.PlaceId == 5253186791 then
