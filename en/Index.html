@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Venture Hub</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+  </head>
+
+  <body>
+    <canvas class="orb-canvas"></canvas>
+
+    <div class="overlay">
+      <div class="overlay__inner">
+        <h1 class="overlay__title">
+          Welcome to
+          <span
+            style="
+              background: linear-gradient(to right, #5f06f8, #ce06b8);
+              -webkit-background-clip: text;
+              background-clip: text;
+              -webkit-text-fill-color: transparent;
+            "
+            >Venture</span
+          >
+          Hub
+          <span class="overlay__title-emoji">👋</span>
+        </h1>
+
+        <p class="overlay__description">
+          its about <strong>Venture Hub</strong>, Created By <strong>Noah</strong> and the script is universal/supports games
+          <strong>There will be more games soon just suggest in the Suggestion channel</strong>
+          when you join!
+        </p>
+
+          <button class="overlay__btn overlay__btn--colors">
+            <a
+              href="https://discord.gg/m4jMgc8pga"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Join Our Server!
+            </a>
+            <span class="overlay__btn-emoji">🔗</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const sr = ScrollReveal();
+
+      sr.reveal("h1, p, span, strong, a", {
+        origin: "bottom",
+        distance: "50px",
+        duration: 1000,
+      });
+    </script>
+  </body>
+</html>
