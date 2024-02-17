@@ -8,8 +8,10 @@ local char = plr.Character
 local hum = char.HumanoidRootPart
 local rep = game:GetService("ReplicatedStorage")
 getgenv().autobuyrank = false
+getgenv().autounlock = false
 getgenv().autosell = false
 getgenv().autoswing = false
+getgenv().autohoop = false
 -- Home
 local home = Window:MakeTab({Name = "Home", Icon = "https://www.roblox.com/library/", PremiumOnly = false})
 
@@ -71,13 +73,8 @@ end
 
 
 
-local function islandunlocker()
- for _,v in pairs(game:GetService("Workspace").islandUnlockParts:GetChildren()) do
-        firetouchinterest(char:FindFirstChild("HumanoidRootPart"),v,0)
-        firetouchinterest(char:FindFirstChild("HumanoidRootPart"),v,1)
-    end
-end
-local function stuff(a, b)
+
+local function stuff(a)
     if a == "sword" or a == "Sword" then
         while true do
             task.wait(0.9)
@@ -88,7 +85,6 @@ local function stuff(a, b)
 
 game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(unpack(args))
         end
-        print(b)
     end
     if a == "belt" or a == "Belt" then
         while true do
@@ -100,7 +96,6 @@ game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(unpack(args))
 
 plr.ninjaEvent:FireServer(unpack(args))
         end
-   print(b)
     end
     if a == "Skills" or a == "skills" then
         while true do
@@ -112,7 +107,6 @@ plr.ninjaEvent:FireServer(unpack(args))
 
 plr.ninjaEvent:FireServer(unpack(args))
         end
-        print(b)
     end
     
     if a == "elements" or a == "Elements" or a == "element" or a == "Element" then
@@ -123,14 +117,12 @@ plr.ninjaEvent:FireServer(unpack(args))
         for i,v in pairs(Elements) do
             rep.rEvents.elementMasteryEvent:FireServer(v)
         end
-        print(b)
     end
     if a == "sell" or a == "Sell" then
         game:GetService("Workspace").sellAreaCircles["sellAreaCircle16"].circleInner.CFrame = hum.CFrame
         wait(0.1)
         game:GetService("Workspace").sellAreaCircles["sellAreaCircle16"].circleInner.CFrame = CFrame.new(0,0,0)
         wait(0.1)
-        print(b)
     end
     if a == "Rank" or a == "rank" then
         local ranks = {}
@@ -140,6 +132,12 @@ plr.ninjaEvent:FireServer(unpack(args))
         local deku1 = "buyRank"
         for i = 1, #ranks do
             plr.ninjaEvent:FireServer(deku1, ranks[i])
+        end
+    end
+    if a == "island" or a == "Island" then
+        for _,v in pairs(game:GetService("Workspace").islandUnlockParts:GetChildren()) do
+            firetouchinterest(char:FindFirstChild("HumanoidRootPart"),v,0)
+            firetouchinterest(char:FindFirstChild("HumanoidRootPart"),v,1)
         end
     end
 end
@@ -184,7 +182,20 @@ auto:AddToggle({
 auto:AddButton({
     Name = "Unlock All Islands",
     Callback = function()
-        islandunlocker()
+        stuff("island")
+    end
+})
+
+auto:AddToggle({
+    Name = "Auto Unlock Islands",
+    default = false,
+    Callback = function(v)
+        getgenv().autounlock = v
+        while true do
+            if not getgenv().autounlock then return end
+            task.wait(0.5)
+            stuff("Island")
+        end
     end
 })
 
@@ -236,16 +247,22 @@ auto:AddToggle({
     end
 })
 
-auto:AddButton({
+auto:AddToggle({
     Name = "Auto Hoop",
-    Callback = function()
-        for i,v in pairs(game:GetService("Workspace").Hoops:GetChildren()) do
-            if v:IsA("MeshPart") then
-                v.touchPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-                task.wait(0.5)
-                v.touchPart.CFrame = CFrame.new(0,0,0)
+    default = false,
+    Callback = function(v)
+        getgenv().autohoop = v
+        while true do
+            if not getgenv().autohoop then return end
+            for i,v in pairs(game:GetService("Workspace").Hoops:GetChildren()) do
+                if v:IsA("MeshPart") then
+                    v.touchPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                    task.wait(0.5)
+                    v.touchPart.CFrame = CFrame.new(0,0,0)
+                end
             end
         end
+        task.wait(1)
     end
 })
 
