@@ -23,8 +23,7 @@ export default function KeyPage() {
   const router = useRouter();
 
   useEffect(() => {
-    // Redirect on client-side if for some reason the server-side check fails
-    router.replace('https://linkvertise.com/1109446/mm2-key?o=sharing');
+    // No need to redirect on the client-side
   }, []);
 
   return null; // Render nothing on the page
