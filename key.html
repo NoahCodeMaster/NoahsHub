@@ -27,24 +27,11 @@
             font-size: 24px;
             margin-bottom: 20px;
         }
-        .copy-btn {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .copy-btn:hover {
-            background-color: #0056b3;
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="key">Loading key...</div>
-        <button class="copy-btn">Copy Key</button>
     </div>
 
     <script>
@@ -52,30 +39,16 @@
             .then(response => response.json())
             .then(data => {
                 if (data.key) {
-                    const keyElement = document.querySelector('.key');
-                    keyElement.textContent = `Your Key: ${data.key}`;
-                    
-                    // Copy key to clipboard
-                    const copyBtn = document.querySelector('.copy-btn');
-                    copyBtn.addEventListener('click', () => {
-                        navigator.clipboard.writeText(data.key)
-                            .then(() => {
-                                copyBtn.textContent = 'Copied!';
-                                setTimeout(() => {
-                                    copyBtn.textContent = 'Copy Key';
-                                }, 2000);
-                            })
-                            .catch(error => {
-                                console.error('Error copying key:', error);
-                            });
-                    });
+                    document.querySelector('.key').textContent = `Your Key: ${data.key}`;
                 } else {
-                    document.querySelector('.key').textContent = 'Error: Access denied';
+                    // Redirect to Linkvertise task if key is not available
+                    window.location.href = 'https://linkvertise.com/1109446/mm2-key?o=sharing';
                 }
             })
             .catch(error => {
-                document.querySelector('.key').textContent = 'Error loading key';
+                // Redirect to Linkvertise task if there's an error
                 console.error('Error fetching the key:', error);
+                window.location.href = 'https://linkvertise.com/1109446/mm2-key?o=sharing';
             });
     </script>
 </body>
