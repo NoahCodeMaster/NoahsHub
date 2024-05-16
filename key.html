@@ -1,82 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            text-align: center;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            max-width: 400px;
-            width: 100%;
-        }
-        .key {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        .copy-btn {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .copy-btn:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="key">Loading key...</div>
-        <button class="copy-btn">Copy Key</button>
-    </div>
+import { promises as fs } from 'fs';
+import path from 'path';
 
-    <script>
-        fetch('/api/getKey')
-            .then(response => response.json())
-            .then(data => {
-                if (data.key) {
-                    const keyElement = document.querySelector('.key');
-                    keyElement.textContent = `Your Key: ${data.key}`;
-                    
-                    // Copy key to clipboard
-                    const copyBtn = document.querySelector('.copy-btn');
-                    copyBtn.addEventListener('click', () => {
-                        navigator.clipboard.writeText(data.key)
-                            .then(() => {
-                                copyBtn.textContent = 'Copied!';
-                                setTimeout(() => {
-                                    copyBtn.textContent = 'Copy Key';
-                                }, 2000);
-                            })
-                            .catch(error => {
-                                console.error('Error copying key:', error);
-                            });
-                    });
-                } else {
-                    document.querySelector('.key').textContent = 'Error: Access denied';
-                }
-            })
-            .catch(error => {
-                document.querySelector('.key').textContent = 'Error loading key';
-                console.error('Error fetching the key:', error);
-            });
-    </script>
-</body>
-</html>
+export default async function handler(req, res) {
+    try {
+        const referrer = req.headers.referer || req.headers.referrer;
+        const expectedIntermediateURL = 'https://linkvertise.com/1109446/mm2-key?o=sharing'; // Replace with your Linkvertise URL
+        const allowedOrigins = ['https://venture-hub.vercel.app', 'https://www.venture-hub.vercel.app']; // Add your website domains
+
+        // Check if the request is coming from your website or the expected intermediate URL
+        if (referrer && (referrer === expectedIntermediateURL || allowedOrigins.some(origin => referrer.startsWith(origin)))) {
+            const filePath = path.join(process.cwd(), 'key.txt');
+            const key = await fs.readFile(filePath, 'utf8');
+            res.status(200).json({ key: key.trim() });
+        } else {
+            res.status(403).json({ error: 'Access denied' });
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+}
