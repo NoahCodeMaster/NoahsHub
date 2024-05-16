@@ -1,22 +1,31 @@
-import { promises as fs } from 'fs';
-import path from 'path';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
-export default async function handler(req, res) {
-    try {
-        const referrer = req.headers.referer || req.headers.referrer;
-        const expectedIntermediateURL = 'https://linkvertise.com/1109446/mm2-key?o=sharing'; // Replace with your Linkvertise URL
-        const allowedOrigins = ['https://venture-hub.vercel.app', 'https://www.venture-hub.vercel.app']; // Add your website domains
+export async function getServerSideProps(context) {
+  // Perform referrer check here
+  const referrer = context.req.headers.referer || context.req.headers.referrer;
+  const expectedIntermediateURL = 'https://linkvertise.com/1109446/mm2-key?o=sharing';
+  if (referrer !== expectedIntermediateURL) {
+    return {
+      redirect: {
+        destination: 'https://linkvertise.com/1109446/mm2-key?o=sharing',
+        permanent: false,
+      },
+    };
+  }
 
-        // Check if the request is coming from your website or the expected intermediate URL
-        if (referrer && (referrer === expectedIntermediateURL || allowedOrigins.some(origin => referrer.startsWith(origin)))) {
-            const filePath = path.join(process.cwd(), 'key.txt');
-            const key = await fs.readFile(filePath, 'utf8');
-            res.status(200).json({ key: key.trim() });
-        } else {
-            res.status(403).json({ error: 'Access denied' });
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        res.status(500).json({ error: 'Internal server error' });
-    }
+  return {
+    props: {},
+  };
+}
+
+export default function KeyPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Redirect on client-side if for some reason the server-side check fails
+    router.replace('https://linkvertise.com/1109446/mm2-key?o=sharing');
+  }, []);
+
+  return null; // Render nothing on the page
 }
