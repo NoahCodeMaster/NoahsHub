@@ -5,7 +5,7 @@ export async function getServerSideProps(context) {
   // Perform referrer check here
   const referrer = context.req.headers.referer || context.req.headers.referrer;
   const expectedIntermediateURL = 'https://linkvertise.com/1109446/mm2-key?o=sharing';
-  if (referrer !== expectedIntermediateURL) {
+  if (!referrer || !referrer.includes(expectedIntermediateURL)) {
     return {
       redirect: {
         destination: 'https://linkvertise.com/1109446/mm2-key?o=sharing',
