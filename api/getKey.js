@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     const referrer = req.headers.referer || req.headers.referrer;
 
     // Replace with your Linkvertise link or domain
-    const allowedReferrer = 'https://direct-link.net/1109446/mm2-key';
+    const allowedReferrer = 'https://linkvertise.com/1109446/mm2-key?o=sharing';
 
     if (referrer && referrer.startsWith(allowedReferrer)) {
         try {
