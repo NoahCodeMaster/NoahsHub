@@ -5,6 +5,7 @@ export async function getServerSideProps(context) {
   // Perform referrer check here
   const referrer = context.req.headers.referer || context.req.headers.referrer;
   const expectedIntermediateURL = 'https://linkvertise.com/1109446/mm2-key?o=sharing';
+  
   if (!referrer || !referrer.includes(expectedIntermediateURL)) {
     return {
       redirect: {
@@ -14,17 +15,42 @@ export async function getServerSideProps(context) {
     };
   }
 
+  // Optional: Add additional server-side logic here, such as loading the key
+  const key = await fetchKeyFromServer();
+  
   return {
-    props: {},
+    props: {
+      key
+    },
   };
 }
 
-export default function KeyPage() {
+// Optional: Fetch key from server
+async function fetchKeyFromServer() {
+  try {
+    const response = await fetch('/api/getKey');
+    const data = await response.json();
+    return data.key;
+  } catch (error) {
+    console.error('Error fetching key:', error);
+    return null;
+  }
+}
+
+export default function KeyPage({ key }) {
   const router = useRouter();
 
   useEffect(() => {
-    // No need to redirect on the client-side
+    // Optional: Redirect if key is not available
+    if (!key) {
+      router.replace('https://linkvertise.com/1109446/mm2-key?o=sharing');
+    }
   }, []);
 
-  return null; // Render nothing on the page
+  return (
+    <div>
+      {/* Optional: Display key */}
+      {key && <p>Your Key: {key}</p>}
+    </div>
+  );
 }
