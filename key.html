@@ -20,22 +20,58 @@
             background: #fff;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             border-radius: 8px;
+            max-width: 400px;
+            width: 100%;
         }
         .key {
             font-size: 24px;
             margin-bottom: 20px;
+        }
+        .copy-btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .copy-btn:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="key">Loading key...</div>
+        <button class="copy-btn">Copy Key</button>
     </div>
+
     <script>
-        fetch('key.txt')
-            .then(response => response.text())
-            .then(key => {
-                document.querySelector('.key').textContent = `Your Key: ${key}`;
+        fetch('/api/getKey')
+            .then(response => response.json())
+            .then(data => {
+                if (data.key) {
+                    const keyElement = document.querySelector('.key');
+                    keyElement.textContent = `Your Key: ${data.key}`;
+                    
+                    // Copy key to clipboard
+                    const copyBtn = document.querySelector('.copy-btn');
+                    copyBtn.addEventListener('click', () => {
+                        navigator.clipboard.writeText(data.key)
+                            .then(() => {
+                                copyBtn.textContent = 'Copied!';
+                                setTimeout(() => {
+                                    copyBtn.textContent = 'Copy Key';
+                                }, 2000);
+                            })
+                            .catch(error => {
+                                console.error('Error copying key:', error);
+                            });
+                    });
+                } else {
+                    document.querySelector('.key').textContent = 'Error: Access denied';
+                }
             })
             .catch(error => {
                 document.querySelector('.key').textContent = 'Error loading key';
