@@ -6,9 +6,9 @@ export default function KeyPage() {
   useEffect(() => {
     const fetchKey = async () => {
       try {
-        const response = await fetch('/api/getKey');
-        const data = await response.json();
-        setKey(data.key);
+        const response = await fetch('/key.txt'); // Fetch key from 'key.txt' file
+        const data = await response.text(); // Read the text content of the file
+        setKey(data.trim()); // Remove leading/trailing whitespace and set the key
       } catch (error) {
         console.error('Error fetching key:', error);
         setKey(null);
