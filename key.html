@@ -3,53 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key</title>
+    <title>Your Key</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            margin: 0;
             font-family: Arial, sans-serif;
+            text-align: center;
         }
         .container {
-            text-align: center;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            max-width: 400px;
-            width: 100%;
+            margin-top: 50px;
         }
-        .key {
-            font-size: 24px;
-            margin-bottom: 20px;
+        p {
+            font-size: 18px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="key">Loading key...</div>
+        <p id="keyParagraph">Loading key...</p>
+        <button id="copyButton">Copy Key</button>
     </div>
 
     <script>
+        // Fetch the key from the server
         fetch('/api/getKey')
             .then(response => response.json())
             .then(data => {
-                if (data.key) {
-                    document.querySelector('.key').textContent = `Your Key: ${data.key}`;
-                } else {
-                    // Redirect to Linkvertise task if key is not available
-                    window.location.href = 'https://linkvertise.com/1109446/mm2-key?o=sharing';
-                }
+                const keyParagraph = document.getElementById('keyParagraph');
+                keyParagraph.textContent = `Your Key: ${data.key}`;
             })
             .catch(error => {
-                // Redirect to Linkvertise task if there's an error
-                console.error('Error fetching the key:', error);
-                window.location.href = 'https://linkvertise.com/1109446/mm2-key?o=sharing';
+                console.error('Error fetching key:', error);
+                const keyParagraph = document.getElementById('keyParagraph');
+                keyParagraph.textContent = 'Error fetching key';
             });
+
+        // Copy key to clipboard
+        document.getElementById('copyButton').addEventListener('click', () => {
+            const keyText = document.getElementById('keyParagraph').textContent;
+            const key = keyText.split(': ')[1].trim();
+            navigator.clipboard.writeText(key)
+                .then(() => alert('Key copied to clipboard'))
+                .catch((error) => console.error('Error copying key:', error));
+        });
     </script>
 </body>
 </html>
