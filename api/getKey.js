@@ -6,16 +6,17 @@ export default function KeyPage() {
   useEffect(() => {
     const fetchKey = async () => {
       try {
-        const response = await fetch('/key.txt'); // Fetch key from 'key.txt' file
-        const data = await response.text(); // Read the text content of the file
-        setKey(data.trim()); // Remove leading/trailing whitespace and set the key
+        const response = await fetch('/key.txt');
+        console.log('Response status:', response.status);
+        const data = await response.text();
+        console.log('Key data:', data);
+        setKey(data.trim());
       } catch (error) {
         console.error('Error fetching key:', error);
         setKey(null);
       }
     };
 
-    // Fetch key only when the component mounts
     fetchKey();
   }, []);
 
