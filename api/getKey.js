@@ -6,12 +6,19 @@ export default function KeyPage() {
   useEffect(() => {
     const fetchKey = async () => {
       try {
-        const response = await fetch('https://glot.io/snippets/gw8jrmdycp/raw/main.js'); // Replace 'https://example.com/key.txt' with your raw link
+        const response = await fetch('https://glot.io/snippets/gw8jrmdycp/raw/main.js'); // Replace with your raw link
         if (!response.ok) {
           throw new Error('Failed to fetch key: ' + response.status);
         }
         const data = await response.text();
-        setKey(data.trim());
+        // Parse the JavaScript file to extract the key (assuming it's in a specific format)
+        const keyRegex = /const\s+correctKey\s+=\s+"([^"]+)"/;
+        const match = data.match(keyRegex);
+        if (match) {
+          setKey(match[1]);
+        } else {
+          throw new Error('Key not found in the JavaScript file');
+        }
       } catch (error) {
         console.error('Error fetching key:', error);
         setKey(null);
