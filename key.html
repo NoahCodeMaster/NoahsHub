@@ -47,8 +47,7 @@
     </div>
 
     <script>
-        // Fetch the key from the server
-        fetch('https://glot.io/snippets/gw8jrmdycp/raw/main.js')
+        fetch('/api/fetchKey') // Assuming your serverless function endpoint is '/api/fetchKey'
             .then(response => response.text())
             .then(data => {
                 const keyParagraph = document.getElementById('keyParagraph');
