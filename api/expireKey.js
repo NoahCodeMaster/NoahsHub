@@ -1,3 +1,5 @@
+let keys = {};
+
 module.exports = (req, res) => {
     const { hwid } = req.query;
     if (!hwid) {
@@ -5,5 +7,6 @@ module.exports = (req, res) => {
     }
 
     delete keys[hwid];
-    res.send('Key expired');
+
+    res.json({ success: true });
 };
