@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkpoint 1</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .loading {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Checkpoint 1</h1>
+        <p>Finish Checkpoint 1 To Get to the other Checkpoint 2 and you get your key!</p>
+        <button id="taskButton">CheckPoint 1 Task</button>
+    </div>
+    
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const hwid = urlParams.get('HWID');
+
+        document.getElementById('taskButton').onclick = function() {
+            if (hwid) {
+                window.location.href = `https://key-system-venture.vercel.app/checkpoint2.html?HWID=${hwid}`;
+            } else {
+                alert('HWID is missing');
+            }
+        };
+    </script>
+</body>
+</html>
