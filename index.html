@@ -28,22 +28,20 @@
     </style>
 </head>
 <body>
-    <div class="container">
+     <div class="container">
         <div class="loading">Loading...</div>
     </div>
     
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const hwid = urlParams.get('HWID');
-
-        if (!hwid) {
-            document.querySelector('.loading').textContent = 'HWID is missing';
-        } else {
-            setTimeout(() => {
-                window.location.href = `checkpoint1.html&HWID=${hwid}`;
-            }, 3000);
-        }
+        setTimeout(() => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const hwid = urlParams.get('HWID');
+            if (hwid) {
+                window.location.href = `https://key-system-venture.vercel.app/checkpoint1?HWID=${hwid}`;
+            } else {
+                alert('HWID is missing in the URL');
+            }
+        }, 3000);
     </script>
-    <script src="https://publisher.linkvertise.com/cdn/linkvertise.js"></script><script>linkvertise(1109446, {whitelist: [], blacklist: [""]});</script>
 </body>
 </html>
