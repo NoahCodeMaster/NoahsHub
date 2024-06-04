@@ -9,9 +9,9 @@ module.exports = (req, res) => {
     }
 
     const key = uuidv4().replace(/-/g, '').substring(0, 16); // Generate a 16-char hex key
-    const expiration = Date.now() + 24 * 60 * 60 * 1000; // 24 hours from now
+    const expiration = Date.now() + 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
     keys[hwid] = { key, expiration };
 
-    res.json({ key });
+    res.json({ key, expiration });
 };
