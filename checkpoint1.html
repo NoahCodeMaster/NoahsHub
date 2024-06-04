@@ -21,9 +21,14 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             border-radius: 8px;
         }
-        .loading {
-            font-size: 24px;
-            margin-bottom: 20px;
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -31,20 +36,15 @@
     <div class="container">
         <h1>Checkpoint 1</h1>
         <p>Finish Checkpoint 1 To Get to the other Checkpoint 2 and you get your key!</p>
-        <button id="taskButton">CheckPoint 1 Task</button>
+        <button class="button" onclick="nextCheckpoint()">CheckPoint 1 Task</button>
     </div>
-    
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const hwid = urlParams.get('HWID');
 
-        document.getElementById('taskButton').onclick = function() {
-            if (hwid) {
-                window.location.href = `https://key-system-venture.vercel.app/checkpoint2.html?HWID=${hwid}`;
-            } else {
-                alert('HWID is missing');
-            }
-        };
+    <script>
+        function nextCheckpoint() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const hwid = urlParams.get('HWID');
+            window.location.href = `https://key-system-venture.vercel.app/checkpoint2?HWID=${hwid}`;
+        }
     </script>
 </body>
 </html>
