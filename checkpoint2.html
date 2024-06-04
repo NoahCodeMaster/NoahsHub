@@ -21,30 +21,30 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             border-radius: 8px;
         }
-        .loading {
-            font-size: 24px;
-            margin-bottom: 20px;
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Checkpoint 2</h1>
-        <p>Complete this task to get your key!</p>
-        <button id="taskButton">Complete Task</button>
+        <p>Finish Checkpoint 2 to get your key!</p>
+        <button class="button" onclick="getKey()">Get Key</button>
     </div>
-    
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const hwid = urlParams.get('HWID');
 
-        document.getElementById('taskButton').onclick = function() {
-            if (hwid) {
-                window.location.href = `https://key-system-venture.vercel.app/api/generateKey?HWID=${hwid}`;
-            } else {
-                alert('HWID is missing');
-            }
-        };
+    <script>
+        function getKey() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const hwid = urlParams.get('HWID');
+            window.location.href = `https://key-system-venture.vercel.app/api/generateKey?HWID=${hwid}`;
+        }
     </script>
 </body>
 </html>
