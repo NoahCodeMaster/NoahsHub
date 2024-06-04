@@ -1,3 +1,5 @@
+let keys = {};
+
 module.exports = (req, res) => {
     const { hwid } = req.query;
     if (!hwid) {
@@ -5,9 +7,9 @@ module.exports = (req, res) => {
     }
 
     const storedKey = keys[hwid];
-    if (storedKey && storedKey.expiration > Date.now()) {
-        return res.json({ key: storedKey.key });
+    if (!storedKey) {
+        return res.status(404).send('Key not found');
     }
 
-    res.status(404).send('No valid key found');
+    res.json({ key: storedKey.key });
 };
