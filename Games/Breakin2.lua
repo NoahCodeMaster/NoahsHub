@@ -12,7 +12,7 @@ local homeS = home:AddSection({Name = "Home"})
 homeS:AddLabel("Hey there, "..plr.Name.."! Thank you for Using Noah's script")
 
 local homeU = home:AddSection({Name = "Updates"})
-homeU:AddLabel(game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/VentureHub/main/UpdateNew/Breakin2.update"))
+homeU:AddLabel(game:HttpGet("https://venture-hub.vercel.app//UpdateNew/Breakin2.update"))
 -- Tabs
 local main = Window:MakeTab({Name = "Main", Icon = "https://www.roblox.com/library/", PremiumOnly = false})
 local sup = Window:MakeTab({Name = "Games"})
