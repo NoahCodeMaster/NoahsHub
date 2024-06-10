@@ -35,7 +35,7 @@ end
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
 local Window = OrionLib:MakeWindow({Name = "Venture Hub", HidePremium = false, SaveConfig = true, IntroEnabled = true, IntroText="Venture Hub"})
-loadstring(game:HttpGet("https://venture-hub.vercel.app/Settings/Source.lua"))()
+loadstring(game:HttpGet("https://venture-hub.vercel.app/Stuff/src.lua"))()
 			
 local plr = game:GetService("Players").LocalPlayer
 local char = plr.Character
@@ -44,7 +44,7 @@ local home = Window:MakeTab({Name = "Home", Icon = "https://www.roblox.com/libra
 local homeS = home:AddSection({Name = "Home"})
 homeS:AddLabel("Hey there, "..game.Players.LocalPlayer.Name.."!")
 local homeU = home:AddSection({Name = "Updates"})
-homeU:AddLabel(game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/VentureHub/main/UpdateNew/TowerOfHell.update"))
+homeU:AddLabel(game:HttpGet("https://venture-hub.vercel.app/UpdateNew/TowerOfHell.update"))
 
 local main = Window:MakeTab({Name = "Main", Icon = "https://www.roblox.com/library/", PremiumOnly = false})
 local sup = Window:MakeTab({Name = "Games"})
@@ -133,14 +133,14 @@ inf:AddButton({
 set:AddButton({
     Name = "Discord Invite Link",
     Callback = function()
-      setclipboard("https://discord.gg/m4jMgc8pga")
+      setclipboard("https://discord.com/invite/34ujgQjspE")
     end
 })
 
 set:AddButton({
     Name = "File Loader Setup",
     Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/VentureHub/main/Settings/Source.lua"))()
+      loadstring(game:HttpGet("https://venture-hub.vercel.app/Settings/Source.lua"))()
     end
 })
 
@@ -151,6 +151,6 @@ set:AddButton({
     end
 })
 
-sup:AddParagraph("Supported Games",game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/VentureHub/main/SupportedGames/games.sup"))
+sup:AddParagraph("Supported Games",game:HttpGet("https://venture-hub.vercel.app/SupportedGames/games.sup"))
 
 OrionLib:Init()
