@@ -1,7 +1,7 @@
 -- Ninja Legends
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
 local Window = OrionLib:MakeWindow({Name = "Venture Hub", HidePremium = false, SaveConfig = true, IntroEnabled = true, IntroText="Venture Hub"})
-loadstring(game:HttpGet("https://venture-hub.vercel.app/Settings/Source.lua"))()
+loadstring(game:HttpGet("https://venture-hub.vercel.app/Stuff/src.lua"))()
 -- Var
 local plr = game:GetService("Players").LocalPlayer
 local char = plr.Character
@@ -20,7 +20,7 @@ local homeS = home:AddSection({Name = "Home"})
 homeS:AddLabel("Hey there, "..plr.Name.."! Thank you for Using Noah's script")
 
 local homeU = home:AddSection({Name = "Updates"})
-homeU:AddLabel(game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/VentureHub/main/UpdateNew/ninjalegends.update"))
+homeU:AddLabel(game:HttpGet("https://venture-hub.vercel.app/UpdateNew/ninjalegends.update"))
 -- Tabs
 local main = Window:MakeTab({Name = "Main", Icon = "https://www.roblox.com/library/", PremiumOnly = false})
 local farm = Window:MakeTab({Name = "Auto Farm"})
@@ -442,14 +442,14 @@ inf:AddButton({
 set:AddButton({
     Name = "Discord Invite Link",
     Callback = function()
-      setclipboard("https://discord.gg/m4jMgc8pga")
+      setclipboard("https://discord.com/invite/34ujgQjspE")
     end
 })
 
 set:AddButton({
     Name = "File Loader Setup",
     Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/VentureHub/main/Settings/Source.lua"))()
+      loadstring(game:HttpGet("https://venture-hub.vercel.app/Settings/Source.lua"))()
     end
 })
 
@@ -459,14 +459,8 @@ set:AddButton({
         OrionLib:Destroy()
     end
 })
-sup:AddParagraph("Supported Games",game:HttpGet("https://raw.githubusercontent.com/NoahCodeMaster/VentureHub/main/SupportedGames/games.sup"))
+sup:AddParagraph("Supported Games",game:HttpGet("https://venture-hub.vercel.app/SupportedGames/games.sup"))
 
 OrionLib:Init()
 
 -- to not annoy while being in simplespy
-local fucker = game:GetService("ReplicatedStorage").rEvents.getServerTimeRemote
-if fucker then
-    fucker:Destroy()
-    else
-        warn("KYEAK")
-end
