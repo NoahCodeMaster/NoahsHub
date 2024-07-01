@@ -11,7 +11,7 @@
     { "src": "404.html", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/styles.css", "dest": "styles.css" },
+    { "src": "/styles.css", "dest": "Style/styles.css" },
     { "src": "/download.css", "dest": "/Style/Download.css" },
     { "src": "/script.js", "dest": "/script.js" },
     { "src": "/logo.png", "dest": "/logo.png" },
