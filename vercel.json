@@ -3,7 +3,7 @@
   "builds": [
     { "src": "index.html", "use": "@vercel/static" },
     { "src": "Download/Download.html", "use": "@vercel/static" },
-    { "src": "Style/Main.css", "use": "@vercel/static" },
+    { "src": "styles.css", "use": "@vercel/static" },
     { "src": "Style/Download.css", "use": "@vercel/static" },
     { "src": "script.js", "use": "@vercel/static" },
     { "src": "Venox_logo.png", "use": "@vercel/static" },
