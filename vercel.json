@@ -7,8 +7,19 @@
     { "src": "Style/Download.css", "use": "@vercel/static" },
     { "src": "script.js", "use": "@vercel/static" },
     { "src": "logo.png", "use": "@vercel/static" },
+    { "src": "main.lua", "use": "@vercel/static" },
     { "src": "web.gif", "use": "@vercel/static" },
-    { "src": "404.html", "use": "@vercel/static" }
+    { "src": "404.html", "use": "@vercel/static" },
+    { "src": "Stuff/src.lua", "use": "@vercel/static" },
+    { "src": "UpdateNew/Breakin2.update", "use": "@vercel/static" },
+    { "src": "UpdateNew/TowerOfHell.update", "use": "@vercel/static" },
+    { "src": "UpdateNew/mm2.update", "use": "@vercel/static" },
+    { "src": "UpdateNew/ninjalegends.update", "use": "@vercel/static" },
+    { "src": "SupportedGames/games.sup", "use": "@vercel/static" },
+    { "src": "Settings/Source.lua", "use": "@vercel/static" },
+    { "src": "Games/Breakin2.lua", "use": "@vercel/static" },
+    { "src": "Games/Ninjalegends.lua", "use": "@vercel/static" },
+    { "src": "Games/Toh.lua", "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "/styles.css", "dest": "Style/styles.css" },
