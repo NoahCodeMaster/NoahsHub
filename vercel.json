@@ -7,7 +7,7 @@
     { "src": "Style/Download.css", "use": "@vercel/static" },
     { "src": "script.js", "use": "@vercel/static" },
     { "src": "logo.png", "use": "@vercel/static" },
-    { "src": "main.lua", "use": "@vercel/static" },
+    { "src": "Main.lua", "use": "@vercel/static" },
     { "src": "web.gif", "use": "@vercel/static" },
     { "src": "404.html", "use": "@vercel/static" },
     { "src": "Stuff/src.lua", "use": "@vercel/static" },
