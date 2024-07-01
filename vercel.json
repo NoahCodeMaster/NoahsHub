@@ -3,23 +3,19 @@
   "builds": [
     { "src": "index.html", "use": "@vercel/static" },
     { "src": "Download/Download.html", "use": "@vercel/static" },
-    { "src": "styles.css", "use": "@vercel/static" },
+    { "src": "Style/styles.css", "use": "@vercel/static" },
     { "src": "Style/Download.css", "use": "@vercel/static" },
     { "src": "script.js", "use": "@vercel/static" },
-    { "src": "Venox_logo.png", "use": "@vercel/static" },
+    { "src": "logo.png", "use": "@vercel/static" },
     { "src": "web.gif", "use": "@vercel/static" },
-    { "src": "404.html", "use": "@vercel/static" },
-    { "src": "gb.html", "use": "@vercel/static" },
-    { "src": "Secure/Check.js", "use": "@vercel/static" } // Added Check.js here
+    { "src": "404.html", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/styles.css", "dest": "/Style/Main.css" },
+    { "src": "/styles.css", "dest": "styles.css" },
     { "src": "/download.css", "dest": "/Style/Download.css" },
     { "src": "/script.js", "dest": "/script.js" },
-    { "src": "/Venox_logo.png", "dest": "/Venox_logo.png" },
+    { "src": "/logo.png", "dest": "/logo.png" },
     { "src": "/web.gif", "dest": "/web.gif" },
-    { "src": "/gb.html", "dest": "/gb.html" },
-    { "src": "/check.js", "dest": "/Secure/Check.js" }, // Updated to match the new Check.js file
     { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/404.html" }
   ]
