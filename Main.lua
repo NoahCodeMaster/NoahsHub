@@ -21,13 +21,13 @@ if not gameid[game.PlaceId] then
 else
     -- Tower Of Hell
     if game.PlaceId == 1962086868 or game.PlaceId == 5253186791 or game.PlaceId == 1962086868 then
-        loadstring(game:HttpGet("https://venture-hub.vercel.app/Games/Toh.lua"))()
+        loadstring(game:HttpGet("https://venture-lol.vercel.app/Games/Toh.lua/"))()
     -- Break In 2
     elseif game.PlaceId == 13864661000 or game.PlaceId == 13864667823 then
-        loadstring(game:HttpGet("https://venture-hub.vercel.app/Games/Breakin2.lua"))()
+        loadstring(game:HttpGet("https://venture-lol.vercel.app/Games/Breakin2.lua/"))()
     -- Ninja Legends
     elseif game.PlaceId == 3956818381 then
-        loadstring(game:HttpGet("https://venture-hub.vercel.app/Games/Ninjalegends.lua"))()
+        loadstring(game:HttpGet("https://venture-lol.vercel.app/Games/Ninjalegends.lua/"))()
     end
 end
 -- Soon
