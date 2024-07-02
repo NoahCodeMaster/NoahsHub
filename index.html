@@ -12,7 +12,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
-    <script src="https://publisher.linkvertise.com/cdn/linkvertise.js"></script><script>linkvertise(1109446, {whitelist: [], blacklist: [""]});</script>
+    <script src="https://publisher.linkvertise.com/cdn/linkvertise.js"></script>
+    <script>
+        linkvertise(1109446, { whitelist: [], blacklist: [""] });
+
+        function confirmRedirect(event) {
+            event.preventDefault();
+            if (confirm("Do you want to proceed to the script download page?")) {
+                window.location.href = event.target.href;
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -38,7 +48,7 @@
     <section id="get-script" class="section">
         <h2>Get Your Script</h2>
         <p>Click the button below to get the latest exploit script for Roblox.</p>
-        <a href="https://paste-drop.com/" class="btn">Download Script</a>
+        <a href="https://paste-drop.com/" class="btn" onclick="confirmRedirect(event)">Download Script</a>
     </section>
     <section id="support" class="section">
         <h2>Support</h2>
