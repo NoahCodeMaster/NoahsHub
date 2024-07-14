@@ -1,15 +1,5 @@
-This Is all open source, and dont try to skid stuff and say its yours
-when i made them bro, like give credits so stop tryna skid
+# Venture Hub
 
-so keep in mind, its all open source 
+**Note:** Do not steal or skid my code. This project is licensed under the MIT License.
 
-
-- noah
-
-
-
-
-
-
-
-stop skidding loser
+If you want to use any part of the code, please contact me on Discord: [ok1v](https://discord.com/users/ok1v).
